@@ -31,7 +31,7 @@ def predict(args, prompt, model, tokenizer):
     inputs = tokenizer(prompt, return_tensors="pt").to('cuda')
     generate_ids = model.generate(
         **inputs, 
-        max_new_tokens = 128,
+        max_new_tokens = args.max_length_cot,
         temperature=args.temperature, 
         pad_token_id=tokenizer.eos_token_id)
     generate_ids = generate_ids[0][len(inputs["input_ids"][0]):-1]
