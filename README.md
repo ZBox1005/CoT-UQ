@@ -3,7 +3,7 @@ CoT-UQ: Improving Response-wise Uncertainty Quantification in LLMs with Chain-of
 </h1>
 
 <p align='center'>
-<a href=""><img src="https://img.shields.io/badge/arXiv-2502.17214-b31b1b.svg" alt="ArXiv"></a> 
+<a href="https://arxiv.org/abs/2502.17214"><img src="https://img.shields.io/badge/arXiv-2502.17214-b31b1b.svg" alt="ArXiv"></a> 
 <img src="https://badges.toozhao.com/badges/01JMPFHS6JM7CYJB9H6EEMKSM2/green.svg" />
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-red.svg" alt="Liscence"></a>
 <img src="https://img.shields.io/github/stars/ZBox1005/CoT-UQ?color=yellow&label=Star" alt="Stars" >
