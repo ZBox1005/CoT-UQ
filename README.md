@@ -92,10 +92,10 @@ python analyze_result.py --uq_engine probas_mean --dataset hotpotQA --output_pat
 If you find our paper and repo useful, please cite our paper:
 
 ```bibtex 
-@inproceedings{zhang2025cot-uq,
-  title={CoT-UQ: Improving Response-wise Uncertainty Quantification in LLMs with Chain-of-Thought},
-  author={Zhang, Boxuan and Zhang, Ruqi},
-  booktitle={ArXiv},
-  year={2025},
+@article{zhang2025cot,
+    title={CoT-UQ: Improving Response-wise Uncertainty Quantification in LLMs with Chain-of-Thought},
+    author={Zhang, Boxuan and Zhang, Ruqi},
+    journal={arXiv preprint arXiv:2502.17214},
+    year={2025}
 } 
 ```
