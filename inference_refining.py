@@ -28,7 +28,7 @@ def llama_inference_refining():
     model, tokenizer, device = model_init(args)
     model.eval()
     
-    for idx, q in enumerate(tqdm(question[:2], total=len(question[:2]))):
+    for idx, q in enumerate(tqdm(question[], total=len(question[]))):
         with open(f"{args.output_path}/output_v1.json", "a", encoding="utf-8") as f:
 
             if args.dataset in ["gsm8k", "svamp", "ASDiv"]:
