@@ -68,15 +68,16 @@ The components of our pipeline are:
 For instance, running the code on `Llama3.1-8B`:
 
 ```shell
-sh run_llama_pipeline.sh llama3-1_8B probas_mean hotpotQA output/llama-3.1-8B/
+sh run_llama_pipeline.sh llama3-1_8B probas-mean hotpotQA output/llama-3.1-8B/
 ```
 
 ### 4. Analyzing Results
 
 After running the pipeline, use `analyze_result.py` to compute performance metrics, such as the AUROC.
+>**Note**: for logical reasoning datasets, we need `gpt-4o-mini` to analyze the correctness of the llm answer (judge the consistence between predictions and GTs), so please specify your own OPENAI API KEY in the environment.
 
 ```shell
-python analyze_result.py --uq_engine probas_mean --dataset hotpotQA --output_path output/llama-3.1-8B/
+python analyze_result.py --uq_engine probas-mean --dataset hotpotQA --output_path output/llama-3.1-8B/
 ```
 
 ## Main Results

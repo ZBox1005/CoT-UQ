@@ -216,9 +216,9 @@ def is_word_in_sentence(sentence, word):
     return True if match else False
 
 def match_final_answer_token_ids(args, original_tokens, response_tokens, original_token_ids):
-    if "llama2" in args.engine:
+    if "llama2" in args.model_engine:
         final_answer_tokens = ['Final', '▁Answer', ':']
-    elif "llama3" in args.engine:
+    elif "llama3" in args.model_engine:
         final_answer_tokens = ['Final', 'ĠAnswer', ':']
     
     end_index = None

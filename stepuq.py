@@ -40,13 +40,14 @@ def compute_step_uncertainty():
             contribution_scores = line['keyword contribution']
             if contribution_scores == {}:
                 continue
+
+            if args.uq_engine in ["probas-mean", "probas-min"]:
+                probabilities, contribution_dict = extract_p(keyword_token_probability, contribution_scores)
+            elif args.uq_engine in ["token-sar"]:
+                probabilities, contribution_dict = extract_p_t_importance(question, keyword_token_probability, tokenizer, measure_model, contribution_scores)
+
             probabilities = {key: weighted_sum(value) for key, value in probabilities.items()}
             contributions = {key: sum(value)/len(value) for key, value in contribution_dict.items()}
-
-            if args.uq_engine == "token_sar":
-                probabilities, contribution_dict = extract_p_t_importance(question, keyword_token_probability, tokenizer, measure_model, contribution_scores)
-            else:
-                probabilities, contribution_dict = extract_p(keyword_token_probability, contribution_scores)
             
             # CoT-UQ
             total_sum = sum(probabilities[key] * contributions[key] for key in probabilities)
@@ -269,11 +270,11 @@ def p_true_uncertainty():
 
 
 if __name__ == '__main__':
-    if args.uq_engine in ['probas_mean', 'probas_min', 'token_sar']:
+    if args.uq_engine in ['probas-mean', 'probas-min', 'token-sar']:
         compute_step_uncertainty()
-    elif args.uq_engine == 'p_true':
+    elif args.uq_engine == 'p-true':
         p_true_uncertainty()
-    elif args.uq_engine == 'self_probing':
+    elif args.uq_engine == 'self-probing':
         self_probing_uncertainty()
     else:
         raise ValueError(f"Invalid UQ engine: {args.uq_engine}")
